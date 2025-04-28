@@ -102,5 +102,38 @@ st.plotly_chart(fig_bubble, use_container_width=True)
 # --- Trend Line Chart: Revenue vs R&D ---
 st.subheader("📈 Revenue and R&D Investment Trend")
 fig_trend = go.Figure()
-fig_trend.add_trace(go.Scatter(x=selected['trend']['Year'], y=selected['trend']['Revenue (Billion EUR)'], name="Revenue (€B)", mode="lines+markers", line=dict(color="royalblue", width=4)))
-fig_trend.add_trace(go.Scatter(x=selected['trend']['Year'], y=selected['trend']['R&D Expenses
+fig_trend.add_trace(go.Scatter(
+    x=selected['trend']['Year'],
+    y=selected['trend']['Revenue (Billion EUR)'],
+    name="Revenue (€B)",
+    mode="lines+markers",
+    line=dict(color="royalblue", width=4)
+))
+fig_trend.add_trace(go.Scatter(
+    x=selected['trend']['Year'],
+    y=selected['trend']['R&D Expenses (Billion EUR)'],
+    name="R&D Investment (€B)",
+    mode="lines+markers",
+    line=dict(color="green", width=4, dash='dash')
+))
+fig_trend.update_layout(
+    yaxis_title="Billion EUR",
+    xaxis_title="Year",
+    legend_title="Legend",
+    height=450
+)
+st.plotly_chart(fig_trend, use_container_width=True)
+
+# --- Strategic Initiatives ---
+st.subheader("🌟 Strategic Focus Areas")
+for initiative in selected['initiatives']:
+    st.success(f"{initiative}")
+
+st.markdown("---")
+
+# --- Download Button ---
+st.subheader("📥 Download Dashboard")
+if st.button("Download Charts Summary (Coming Soon)"):
+    st.info("Download functionality coming soon! 📄✨ Stay tuned.")
+
+st.caption("Data source: Boehringer Ingelheim Annual Reports 2020, 2023, 2024")
