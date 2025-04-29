@@ -57,7 +57,7 @@ data = {
 st.title("💊 Boehringer Ingelheim Annual Highlights (2020–2024)")
 
 # --- Year Selector ---
-year = st.selectbox("Select Year", list(data.keys()), index=3)
+year = st.selectbox("Select Year", sorted(data.keys()), index=3)
 selected = data[year]
 
 # --- KPI Cards ---
