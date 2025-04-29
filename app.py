@@ -26,14 +26,28 @@ div.stButton>button {
     padding: 10px 24px;
     font-weight: bold;
 }
+.header-banner {
+    background: linear-gradient(90deg, #6a0dad, #00c6ff);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+.header-banner h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
 </style>
 """, unsafe_allow_html=True)
 
-# --- Moving Ticker at the Top ---
+# --- Landing Banner ---
 st.markdown("""
-<marquee behavior="scroll" direction="left" style="color:cyan;font-size:18px;">
-    🚀 Innovation | 🌍 Global Reach | 💊 Human Pharma | 🧬 Animal Health | 🌱 Sustainability 
-</marquee>
+<div class="header-banner">
+    <h1>Boehringer Ingelheim</h1>
+    <marquee behavior="scroll" direction="left" style="color:white;font-size:18px;">
+        🚀 Innovation | 🌍 Global Reach | 💊 Human Pharma | 🧬 Animal Health | 🌱 Sustainability 
+    </marquee>
+</div>
 """, unsafe_allow_html=True)
 
 # --- Data Definitions ---
@@ -66,7 +80,7 @@ year = st.sidebar.selectbox("", sorted(data.keys()), index=3)
 selected = data[year]
 
 # --- App Title ---
-st.title("💊 Boehringer Ingelheim Annual Highlights (2020–2024)")
+st.markdown("# 💊 Boehringer Ingelheim Annual Highlights (2020–2024)")
 
 # --- KPI Cards ---
 col1, col2, col3 = st.columns(3)
